@@ -1,0 +1,37 @@
+name: tally-and-deploy
+on:
+  push:
+    branches: [main]
+    paths: ["log/**", "reviews/**", "learn/**", "rewards.log", "rules.yml", "side-quests.yml", "scripts/**", "site/**"]
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+      - run: python scripts/tally.py
+      - name: Commit results
+        run: |
+          git config user.name "life-rpg-bot"
+          git config user.email "life-rpg-bot@users.noreply.github.com"
+          git add README.md site/stats.json
+          git diff --cached --quiet || (git commit -m "tally: update stats" && git push)
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deployment
+        uses: actions/deploy-pages@v4

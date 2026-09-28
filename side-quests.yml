@@ -1,0 +1,5 @@
+# One-off missions (a trip, an appointment, a deadline). Each is a YAML list item on one line.
+# The website's Quests tab can add these for you, or paste a line here.
+# Log a completed one by adding  +sq:<id>  to that day's habits column (the site does it when you tap it).
+#
+# - {"id": "airport", "title": "Get to the airport 2h early", "date": "2026-10-10", "until": "2026-10-10", "xp": 30, "gold": 5, "hint": "Bag packed the night before, ID + boarding pass ready."}

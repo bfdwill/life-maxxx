@@ -1,0 +1,248 @@
+{
+  "player": "W",
+  "start_date": "2026-09-21",
+  "total_days": 90,
+  "cycle": [
+    "W1",
+    "W2"
+  ],
+  "cycle_types": {
+    "W1": [
+      "DBL",
+      "FLR",
+      "FLR",
+      "RMT",
+      "DBL",
+      "DBL",
+      "DBL"
+    ],
+    "W2": [
+      "RMT",
+      "FLR",
+      "FLR",
+      "DBL",
+      "DBL",
+      "RMT",
+      "RMT"
+    ]
+  },
+  "dailies": [
+    {
+      "key": "S",
+      "name": "Sleep Floor",
+      "stat": "VIT",
+      "icon": "🌙",
+      "normal": "Asleep by 7:15, 6h+",
+      "minimum": "10-min wind-down"
+    },
+    {
+      "key": "F",
+      "name": "Fuel",
+      "stat": "FUEL",
+      "icon": "🍗",
+      "normal": "All 5 anchors + pack tomorrow",
+      "minimum": "Shake + yogurt"
+    },
+    {
+      "key": "M",
+      "name": "Move",
+      "stat": "GRIT",
+      "icon": "🥋",
+      "normal": "20+ min: BJJ, run, lift, or walk",
+      "minimum": "5-min mobility or 10-min walk",
+      "rest": true
+    },
+    {
+      "key": "L",
+      "name": "Learn",
+      "stat": "SYS",
+      "icon": "💻",
+      "normal": "30 min Linux or homelab",
+      "minimum": "10 min: one lab step"
+    },
+    {
+      "key": "G",
+      "name": "Log",
+      "stat": "DISC",
+      "icon": "📜",
+      "normal": "Log the day + tomorrow's type",
+      "minimum": "Log line only"
+    }
+  ],
+  "rules": {
+    "daily_xp": {
+      "N": 20,
+      "m": 10,
+      "r": 10
+    },
+    "daily_gold": {
+      "N": 3,
+      "m": 1,
+      "r": 1
+    },
+    "perfect_day": {
+      "xp": 15,
+      "gold": 2,
+      "stat": "DISC"
+    },
+    "habits": {
+      "+train": {
+        "xp": 15,
+        "gold": 2,
+        "stat": "GRIT",
+        "training": true,
+        "label": "Trained 20+ min",
+        "icon": "🥊"
+      },
+      "+sleep7": {
+        "xp": 5,
+        "gold": 1,
+        "stat": "VIT",
+        "label": "Slept 7h+",
+        "icon": "🛌"
+      },
+      "+anchor": {
+        "xp": 5,
+        "gold": 1,
+        "stat": "FUEL",
+        "label": "Extra anchor",
+        "icon": "🥛"
+      },
+      "+cook": {
+        "xp": 5,
+        "gold": 1,
+        "stat": "FUEL",
+        "label": "Batch-cooked",
+        "icon": "🍳"
+      },
+      "+homelab": {
+        "xp": 5,
+        "gold": 1,
+        "stat": "SYS",
+        "label": "Homelab / commit",
+        "icon": "🧪"
+      }
+    },
+    "other_habit_cap_per_day": 3,
+    "negatives": {
+      "-screens": 5,
+      "-fasting": 5
+    },
+    "negative_labels": {
+      "-screens": "Screens in sleep block",
+      "-fasting": "6h+ without eating"
+    }
+  },
+  "quest_defs": {
+    "W1": {
+      "name": "Hold the Line",
+      "xp": 100,
+      "gold": 25,
+      "full_bonus_xp": 40,
+      "need": {
+        "sleep_green_days": 4,
+        "normal_fuel_days": 3,
+        "training_days": 2,
+        "learn_days": 4,
+        "ship_count": 1
+      }
+    },
+    "W2": {
+      "name": "Build",
+      "xp": 150,
+      "gold": 35,
+      "full_bonus_xp": 50,
+      "need": {
+        "sleep_green_days": 5,
+        "normal_fuel_days": 5,
+        "training_days": 3,
+        "learn_days": 5,
+        "ship_count": 1
+      }
+    }
+  },
+  "day": 0,
+  "last_log": null,
+  "days_active": 0,
+  "total_xp": 0,
+  "level": 1,
+  "rank": "Recruit",
+  "level_floor_xp": 0,
+  "next_level_xp": 220,
+  "levels_base": 110,
+  "stats": {
+    "VIT": 0,
+    "FUEL": 0,
+    "GRIT": 0,
+    "SYS": 0,
+    "DISC": 0
+  },
+  "gold_balance": 0,
+  "reviews": 0,
+  "comebacks_cleared": 0,
+  "weeks": {},
+  "badges": [
+    {
+      "id": "cli",
+      "name": "CLI Badge",
+      "town": "Terminal Town",
+      "file": "learn/linux/cheatsheet.md",
+      "blurb": "Ship your Linux cheat sheet",
+      "target_day": 14,
+      "target_date": "2026-10-04",
+      "arrive_level": 3,
+      "arrive_xp": 660,
+      "earned": false
+    },
+    {
+      "id": "hardened",
+      "name": "Hardened Badge",
+      "town": "Sudo Ridge",
+      "file": "learn/linux/hardened-vm-checklist.md",
+      "blurb": "Ship your hardened-VM checklist",
+      "target_day": 28,
+      "target_date": "2026-10-18",
+      "arrive_level": 5,
+      "arrive_xp": 2200,
+      "earned": false
+    },
+    {
+      "id": "homelab",
+      "name": "Homelab Badge",
+      "town": "Homelab Harbor",
+      "file": "learn/homelab/homelab-writeup.md",
+      "blurb": "Ship your first homelab writeup",
+      "target_day": 45,
+      "target_date": "2026-11-04",
+      "arrive_level": 7,
+      "arrive_xp": 4620,
+      "earned": false
+    },
+    {
+      "id": "path",
+      "name": "Path Badge",
+      "town": "Path City",
+      "file": "learn/path/project-1.md",
+      "blurb": "Ship project 1 on your chosen path",
+      "target_day": 70,
+      "target_date": "2026-11-29",
+      "arrive_level": 9,
+      "arrive_xp": 7920,
+      "earned": false
+    },
+    {
+      "id": "league",
+      "name": "League Badge",
+      "town": "Champion Summit",
+      "file": "learn/path/project-2.md",
+      "blurb": "Ship project 2 and finish the 90 days",
+      "target_day": 90,
+      "target_date": "2026-12-19",
+      "arrive_level": 10,
+      "arrive_xp": 9900,
+      "earned": false
+    }
+  ],
+  "side_quests": [],
+  "recent": []
+}

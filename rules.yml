@@ -1,0 +1,78 @@
+# Life-RPG rules. Edit numbers here; scripts/tally.py and the website read this file.
+player: W
+start_date: 2026-09-21      # Day 1 = Week-1 (heavy) Monday of the 14-day cycle. Must be a Monday.
+total_days: 90              # Day 90 = 2026-12-19
+cycle: [W1, W2]             # weeks alternate, starting with W1
+cycle_types:                # Mon..Sun. DBL = both jobs, FLR = floor only, RMT = remote only
+  W1: [DBL, FLR, FLR, RMT, DBL, DBL, DBL]
+  W2: [RMT, FLR, FLR, DBL, DBL, RMT, RMT]
+
+# Add a daily by adding a line here (any unused capital letter). The site and tally pick it up.
+dailies:
+  S: {name: Sleep Floor, stat: VIT,  icon: "🌙", normal: "Asleep by 7:15, 6h+",              minimum: "10-min wind-down"}
+  F: {name: Fuel,        stat: FUEL, icon: "🍗", normal: "All 5 anchors + pack tomorrow",    minimum: "Shake + yogurt"}
+  M: {name: Move,        stat: GRIT, icon: "🥋", normal: "20+ min: BJJ, run, lift, or walk", minimum: "5-min mobility or 10-min walk", rest: true}
+  L: {name: Learn,       stat: SYS,  icon: "💻", normal: "30 min Linux or homelab",          minimum: "10 min: one lab step"}
+  G: {name: Log,         stat: DISC, icon: "📜", normal: "Log the day + tomorrow's type",    minimum: "Log line only"}
+
+# Daily codes: N = normal, m = minimum, r = rest/shield (scores like a minimum), - = skipped
+daily_xp:   {"N": 20, "m": 10, "r": 10}
+daily_gold: {"N": 3,  "m": 1,  "r": 1}
+
+perfect_day: {xp: 15, gold: 2, stat: DISC}   # all Dailies done, any mix of N / m / r
+
+habits:                                       # log as tokens in the habits column
+  "+train":   {xp: 15, gold: 2, stat: GRIT, training: true, label: "Trained 20+ min", icon: "🥊"}   # max 1 per day
+  "+sleep7":  {xp: 5, gold: 1, stat: VIT,  label: "Slept 7h+",         icon: "🛌"}
+  "+anchor":  {xp: 5, gold: 1, stat: FUEL, label: "Extra anchor",      icon: "🥛"}
+  "+cook":    {xp: 5, gold: 1, stat: FUEL, label: "Batch-cooked",      icon: "🍳"}
+  "+homelab": {xp: 5, gold: 1, stat: SYS,  label: "Homelab / commit",  icon: "🧪"}
+other_habit_cap_per_day: 3
+
+negatives:                  # each trims that day's BONUS XP only, never base XP, gold, or progress
+  "-screens": 5
+  "-fasting": 5
+negative_labels: {"-screens": "Screens in sleep block", "-fasting": "6h+ without eating"}
+
+review:   {xp: 25, gold: 5, stat: DISC}       # one reviews/YYYY-Www.md file = one review
+comeback: {xp: 30, gold: 5, stat: DISC, low_days: 2, low_max_done: 1, clear_min_done: 3}
+
+milestones:
+  - {day: 30, xp: 100, gold: 25,  stat: SYS}
+  - {day: 45, xp: 150, gold: 40,  stat: SYS}
+  - {day: 60, xp: 100, gold: 25,  stat: SYS}
+  - {day: 90, xp: 250, gold: 100, stat: SYS}
+
+# Gym badges: a badge unlocks when its file exists in the repo and is at least badge_min_bytes.
+# The trainer reaches each town by earning XP (arrive_level); the badge is earned by shipping the file.
+badge_reward: {xp: 75, gold: 15, stat: SYS}
+badge_min_bytes: 300
+badges:
+  - {id: cli,      name: CLI Badge,      town: Terminal Town,   file: learn/linux/cheatsheet.md,             target_day: 14, arrive_level: 3,  blurb: "Ship your Linux cheat sheet"}
+  - {id: hardened, name: Hardened Badge, town: Sudo Ridge,      file: learn/linux/hardened-vm-checklist.md,  target_day: 28, arrive_level: 5,  blurb: "Ship your hardened-VM checklist"}
+  - {id: homelab,  name: Homelab Badge,  town: Homelab Harbor,  file: learn/homelab/homelab-writeup.md,      target_day: 45, arrive_level: 7,  blurb: "Ship your first homelab writeup"}
+  - {id: path,     name: Path Badge,     town: Path City,       file: learn/path/project-1.md,              target_day: 70, arrive_level: 9,  blurb: "Ship project 1 on your chosen path"}
+  - {id: league,   name: League Badge,   town: Champion Summit, file: learn/path/project-2.md,              target_day: 90, arrive_level: 10, blurb: "Ship project 2 and finish the 90 days"}
+
+# Quest: 3 of 4 objectives = full reward, 2 of 4 = half, 4 of 4 = full + bonus.
+# Objectives: sleep (G nights), fuel (Normal Fuel days), move (+train days),
+# learn (Learn days done AND at least `ship_count` +homelab days).
+quest_stats: [VIT, FUEL, GRIT, SYS]           # quest XP splits evenly across these
+quests:
+  W1:
+    name: Hold the Line
+    xp: 100
+    gold: 25
+    full_bonus_xp: 40
+    need: {sleep_green_days: 4, normal_fuel_days: 3, training_days: 2, learn_days: 4, ship_count: 1}
+  W2:
+    name: Build
+    xp: 150
+    gold: 35
+    full_bonus_xp: 50
+    need: {sleep_green_days: 5, normal_fuel_days: 5, training_days: 3, learn_days: 5, ship_count: 1}
+
+levels: {base: 110}         # cumulative XP to reach level n = base * n * (n - 1)
+ranks: [[1, Recruit], [4, Operator], [7, Engineer], [10, Architect]]
+
+reward_tiers: {T1: 40, T2: 120, T3: 350}      # gold costs; adjust to your real prices
