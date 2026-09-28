@@ -27,7 +27,7 @@
 
   function toast(msg) {
     const t = $("#toast"); t.textContent = msg; t.classList.add("show");
-    clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove("show"), 2600);
+    clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove("show"), 2400 + msg.length * 45);
   }
 
   // ---------- GitHub API ----------
@@ -38,12 +38,20 @@
     if (status === 409 || status === 422) return "The file changed while saving. Tap Save again.";
     return `GitHub error ${status}.`;
   }
+  function explainNetError(e) {
+    const m = String((e && e.message) || e);
+    if (/ISO-8859-1|header|Invalid value|not a valid HTTP/i.test(m)) return "The token has a stray character in it. Delete the token box, copy the token again from GitHub, and paste it fresh.";
+    return "Could not reach GitHub from this browser. Try cellular data instead of Wi-Fi (work or hospital Wi-Fi can block it), and turn off any VPN or content blocker.";
+  }
   async function gh(path, opts) {
-    return fetch(`https://api.github.com/repos/${settings.owner}/${settings.repo}/${path}`, {
-      ...(opts || {}),
-      headers: { Accept: "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28",
-                 Authorization: `Bearer ${settings.token}`, ...((opts && opts.headers) || {}) },
-    });
+    const url = `https://api.github.com/repos/${encodeURIComponent(settings.owner)}/${encodeURIComponent(settings.repo)}${path ? "/" + path : ""}`;
+    try {
+      return await fetch(url, {
+        ...(opts || {}),
+        headers: { Accept: "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28",
+                   Authorization: `Bearer ${settings.token}`, ...((opts && opts.headers) || {}) },
+      });
+    } catch (e) { throw new Error(explainNetError(e)); }
   }
   const b64dec = (b) => new TextDecoder().decode(Uint8Array.from(atob(b.replace(/\s/g, "")), (c) => c.charCodeAt(0)));
   function b64enc(t) { const bytes = new TextEncoder().encode(t); let s = ""; for (let i = 0; i < bytes.length; i++) s += String.fromCharCode(bytes[i]); return btoa(s); }
@@ -228,6 +236,15 @@
       <div class="card"><button class="btn alt" data-act="resetday">Reset today's taps</button></div>`;
   }
 
+  function readForm() {
+    let owner = $("#s-owner").value.trim().replace(/^https?:\/\/github\.com\//i, "").replace(/^@/, "");
+    let repo = $("#s-repo").value.trim();
+    if (owner.includes("/")) { const p = owner.split("/"); owner = p[0]; if (!repo) repo = p[1]; }
+    repo = repo.split("/").pop().replace(/\.git$/i, "");
+    const token = $("#s-token").value.replace(/[^\x21-\x7E]/g, ""); // drop spaces, line breaks, and any non-ASCII characters
+    $("#s-owner").value = owner; $("#s-repo").value = repo; $("#s-token").value = token; // show the cleaned values
+    return { owner, repo, branch: $("#s-branch").value.trim() || "main", token };
+  }
   function renderHud() { $("#hud").innerHTML = hud(); }
   function renderView() {
     const v = $("#view");
@@ -279,7 +296,7 @@
     else if (a === "copy") { navigator.clipboard.writeText(saveMsg.line).then(() => toast("Copied"), () => toast("Long-press the line to copy")); }
     else if (a === "resetday") { state = L.emptyState(); saveMsg = null; persist(); toast("Today's taps cleared"); render(); }
     else if (a === "savesettings") {
-      settings = { owner: $("#s-owner").value.trim(), repo: $("#s-repo").value.trim(), branch: $("#s-branch").value.trim() || "main", token: $("#s-token").value.trim() };
+      settings = readForm();
       try { localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings)); } catch (err) {}
       toast("Settings saved"); pullToday();
     }
@@ -288,13 +305,16 @@
   }
 
   async function testConn() {
-    settings = { owner: $("#s-owner").value.trim(), repo: $("#s-repo").value.trim(), branch: $("#s-branch").value.trim() || "main", token: $("#s-token").value.trim() };
+    settings = readForm();
+    if (!settings.owner || !settings.repo || !settings.token) return toast("Fill in the owner, repo name, and token first.");
+    if (!/^(github_pat_|ghp_)/.test(settings.token)) return toast("That doesn't look like a GitHub token. It should start with github_pat_.");
+    toast("Testing...");
     try {
       const r = await gh("");
       if (!r.ok) return toast(friendly(r.status));
       const j = await r.json();
-      toast(j.permissions && j.permissions.push ? "Connected ✓ can write" : "Connected, but token is read-only");
-    } catch (e) { toast("Network problem. Try again."); }
+      toast(j.permissions && j.permissions.push === false ? "Connected, but this token is read-only. Add Contents: Read and write." : "Connected ✓");
+    } catch (e) { toast(e.message || "Could not connect."); }
   }
 
   async function addSideQuest() {
