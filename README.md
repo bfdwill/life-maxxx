@@ -1,6 +1,6 @@
 # Life-RPG
 
-A 90-day habit system built around a two-job schedule (remote healthcare IT nights plus hospital floor shifts). It scores five daily habits, weekly quests, and a Linux → homelab learning track. A GitHub Action tallies the daily log, refreshes the stats below, and deploys the dashboard. Day 1 was 2026-09-21.
+A 90-day habit system built around a hospital floor-tech schedule (2pm-10:30pm shifts on a 14-day cycle). Through Day 60 it also covered a second, overnight remote job, which ended on Day 61; see `schedule.md`. It scores five daily habits, weekly quests, and a Linux → homelab learning track. A GitHub Action tallies the daily log, refreshes the stats below, and deploys the dashboard. Day 1 was 2026-09-21.
 
 <!-- RPG:START -->
 _No log entries yet. Day 1 is 2026-09-21._
@@ -24,7 +24,7 @@ The `learn/` folder is the portfolio side of this repo: Linux notes, hardened-VM
 ## The 5 Dailies
 | Code | Daily | Stat | Normal | Minimum (2-10 min) |
 |---|---|---|---|---|
-| S | Sleep Floor | VIT | Asleep by 7:15, 6h+ | 10-min wind-down |
+| S | Sleep Floor | VIT | Asleep by 1:30, 6h+ | 10-min wind-down |
 | F | Fuel | FUEL | All 5 anchors | Shake + yogurt |
 | M | Move | GRIT | 20+ min of movement | 5-min mobility or 10-min walk |
 | L | Learn | SYS | 30 min Linux / homelab | 10 min |
@@ -39,7 +39,7 @@ Add one line per day to `log/YYYY-MM.md`:
 
 | Field | Values |
 |---|---|
-| Day type | `DBL` both jobs, `FLR` floor only, `RMT` remote only (see `schedule.md`) |
+| Day type | `FLR` floor shift, `OFF` day off (see `schedule.md`). Older days logged `DBL` both jobs or `RMT` remote only |
 | Sleep | `sleep:G` 6h+, `sleep:Y` 5-5.9h, `sleep:R` under 5h (Recovery Mode) |
 | Dailies | `N` normal, `m` minimum, `r` rest or shield (scores like a minimum), `-` skipped |
 | Habits | `+train` `+sleep7` `+anchor` `+cook` `+homelab` `-screens` `-fasting` |

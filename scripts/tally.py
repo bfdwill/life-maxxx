@@ -340,6 +340,9 @@ def tally():
         "player": R.get("player", "Player"),
         "start_date": start.isoformat(), "total_days": total_days,
         "cycle": R["cycle"], "cycle_types": R["cycle_types"],
+        "schedule_phases": [{"from": to_date(p["from"]).isoformat(), "cycle_types": p["cycle_types"]}
+                            for p in R.get("schedule_phases", [])],
+        "training_plan": R.get("training_plan", {}),
         "dailies": [dict(key=k, **v) for k, v in R["dailies"].items()],
         "rules": {
             "daily_xp": R["daily_xp"], "daily_gold": R["daily_gold"],

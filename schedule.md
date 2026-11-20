@@ -1,6 +1,6 @@
 # 90-day schedule
 
-DBL = both jobs, FLR = floor only, RMT = remote only. Week 1 is heavy, Week 2 is lighter.
+FLR = floor shift (2pm-10:30pm), OFF = day off. Through Day 60 (Nov 19) the old two-job types apply: DBL = both jobs, RMT = remote only. The overnight remote job ended on Day 61 (Fri Nov 20), so Day 61 onward is floor-only.
 
 | Day | Date | Wk | Type | Note |
 |---:|---|---|---|---|
@@ -64,33 +64,33 @@ DBL = both jobs, FLR = floor only, RMT = remote only. Week 1 is heavy, Week 2 is
 | 58 | Tue Nov 17 | W1 | FLR |  |
 | 59 | Wed Nov 18 | W1 | FLR |  |
 | 60 | Thu Nov 19 | W1 | RMT | Milestone 3 |
-| 61 | Fri Nov 20 | W1 | DBL |  |
-| 62 | Sat Nov 21 | W1 | DBL |  |
-| 63 | Sun Nov 22 | W1 | DBL |  |
-| 64 | Mon Nov 23 | W2 | RMT |  |
+| 61 | Fri Nov 20 | W1 | FLR |  |
+| 62 | Sat Nov 21 | W1 | FLR |  |
+| 63 | Sun Nov 22 | W1 | FLR |  |
+| 64 | Mon Nov 23 | W2 | OFF |  |
 | 65 | Tue Nov 24 | W2 | FLR |  |
 | 66 | Wed Nov 25 | W2 | FLR |  |
-| 67 | Thu Nov 26 | W2 | DBL |  |
-| 68 | Fri Nov 27 | W2 | DBL |  |
-| 69 | Sat Nov 28 | W2 | RMT |  |
-| 70 | Sun Nov 29 | W2 | RMT |  |
-| 71 | Mon Nov 30 | W1 | DBL |  |
+| 67 | Thu Nov 26 | W2 | FLR |  |
+| 68 | Fri Nov 27 | W2 | FLR |  |
+| 69 | Sat Nov 28 | W2 | OFF |  |
+| 70 | Sun Nov 29 | W2 | OFF |  |
+| 71 | Mon Nov 30 | W1 | FLR |  |
 | 72 | Tue Dec 01 | W1 | FLR |  |
 | 73 | Wed Dec 02 | W1 | FLR |  |
-| 74 | Thu Dec 03 | W1 | RMT |  |
-| 75 | Fri Dec 04 | W1 | DBL |  |
-| 76 | Sat Dec 05 | W1 | DBL |  |
-| 77 | Sun Dec 06 | W1 | DBL |  |
-| 78 | Mon Dec 07 | W2 | RMT |  |
+| 74 | Thu Dec 03 | W1 | OFF |  |
+| 75 | Fri Dec 04 | W1 | FLR |  |
+| 76 | Sat Dec 05 | W1 | FLR |  |
+| 77 | Sun Dec 06 | W1 | FLR |  |
+| 78 | Mon Dec 07 | W2 | OFF |  |
 | 79 | Tue Dec 08 | W2 | FLR |  |
 | 80 | Wed Dec 09 | W2 | FLR |  |
-| 81 | Thu Dec 10 | W2 | DBL |  |
-| 82 | Fri Dec 11 | W2 | DBL |  |
-| 83 | Sat Dec 12 | W2 | RMT |  |
-| 84 | Sun Dec 13 | W2 | RMT |  |
-| 85 | Mon Dec 14 | W1 | DBL |  |
+| 81 | Thu Dec 10 | W2 | FLR |  |
+| 82 | Fri Dec 11 | W2 | FLR |  |
+| 83 | Sat Dec 12 | W2 | OFF |  |
+| 84 | Sun Dec 13 | W2 | OFF |  |
+| 85 | Mon Dec 14 | W1 | FLR |  |
 | 86 | Tue Dec 15 | W1 | FLR |  |
 | 87 | Wed Dec 16 | W1 | FLR |  |
-| 88 | Thu Dec 17 | W1 | RMT |  |
-| 89 | Fri Dec 18 | W1 | DBL |  |
-| 90 | Sat Dec 19 | W1 | DBL | Finish |
+| 88 | Thu Dec 17 | W1 | OFF |  |
+| 89 | Fri Dec 18 | W1 | FLR |  |
+| 90 | Sat Dec 19 | W1 | FLR | Finish |
