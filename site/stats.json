@@ -1,10 +1,10 @@
 {
   "player": "W",
-  "start_date": "2026-09-21",
+  "start_date": "2026-11-23",
   "total_days": 90,
   "cycle": [
-    "W1",
-    "W2"
+    "W2",
+    "W1"
   ],
   "cycle_types": {
     "W1": [
@@ -241,7 +241,7 @@
       "file": "learn/linux/cheatsheet.md",
       "blurb": "Ship your Linux cheat sheet",
       "target_day": 14,
-      "target_date": "2026-10-04",
+      "target_date": "2026-12-06",
       "arrive_level": 3,
       "arrive_xp": 660,
       "earned": false
@@ -253,7 +253,7 @@
       "file": "learn/linux/hardened-vm-checklist.md",
       "blurb": "Ship your hardened-VM checklist",
       "target_day": 28,
-      "target_date": "2026-10-18",
+      "target_date": "2026-12-20",
       "arrive_level": 5,
       "arrive_xp": 2200,
       "earned": false
@@ -265,7 +265,7 @@
       "file": "learn/homelab/homelab-writeup.md",
       "blurb": "Ship your first homelab writeup",
       "target_day": 45,
-      "target_date": "2026-11-04",
+      "target_date": "2027-01-06",
       "arrive_level": 7,
       "arrive_xp": 4620,
       "earned": false
@@ -277,7 +277,7 @@
       "file": "learn/path/project-1.md",
       "blurb": "Ship project 1 on your chosen path",
       "target_day": 70,
-      "target_date": "2026-11-29",
+      "target_date": "2027-01-31",
       "arrive_level": 9,
       "arrive_xp": 7920,
       "earned": false
@@ -289,7 +289,7 @@
       "file": "learn/path/project-2.md",
       "blurb": "Ship project 2 and finish the 90 days",
       "target_day": 90,
-      "target_date": "2026-12-19",
+      "target_date": "2027-02-20",
       "arrive_level": 10,
       "arrive_xp": 9900,
       "earned": false
