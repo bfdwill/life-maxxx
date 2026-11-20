@@ -121,6 +121,13 @@
         "stat": "SYS",
         "label": "Homelab / commit",
         "icon": "🧪"
+      },
+      "+study": {
+        "xp": 5,
+        "gold": 1,
+        "stat": "SYS",
+        "label": "Study reps (10+ cards)",
+        "icon": "🧠"
       }
     },
     "other_habit_cap_per_day": 3,
