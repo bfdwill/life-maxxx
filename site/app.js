@@ -1,6 +1,6 @@
 /* Life-RPG app: tabs, taps, saving to GitHub. */
 (function () {
-  const L = window.RPG, ART = window.RPGArt;
+  const L = window.RPG, ART = window.RPGArt, STUDY = window.RPGStudy;
   const $ = (s) => document.querySelector(s);
   const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const SETTINGS_KEY = "lrpg.settings";
@@ -248,7 +248,7 @@
   function renderHud() { $("#hud").innerHTML = hud(); }
   function renderView() {
     const v = $("#view");
-    v.innerHTML = tab === "today" ? viewToday() : tab === "map" ? viewMap() : tab === "quests" ? viewQuests() : viewSetup();
+    v.innerHTML = tab === "today" ? viewToday() : tab === "map" ? viewMap() : tab === "quests" ? viewQuests() : tab === "study" ? STUDY.view() : viewSetup();
     document.querySelectorAll("#tabs button").forEach((b) => b.classList.toggle("on", b.dataset.v === tab));
     if (tab === "map") {
       const me = ART.drawMap($("#mapwrap"), cfg, selTown, (id) => { selTown = id; renderView(); });
@@ -282,6 +282,7 @@
     const a = el.dataset.act;
     if (a === "tab") { tab = el.dataset.v; saveMsg = tab === "today" ? saveMsg : null; scrollToMe = tab === "map"; window.scrollTo(0, 0); renderView(); return; }
     if (a === "town") return;
+    if (a.indexOf("study-") === 0) { STUDY.onClick(el); renderView(); return; }
     const touch = () => { state.dirty = true; saveMsg = null; persist(); renderView(); };
     if (a === "sleep") { state.sleep = state.sleep === el.dataset.v ? null : el.dataset.v; touch(); }
     else if (a === "code") { const k = el.dataset.k, v = el.dataset.v; if (state.codes[k] === v) delete state.codes[k]; else state.codes[k] = v; touch(); }

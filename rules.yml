@@ -27,6 +27,7 @@ habits:                                       # log as tokens in the habits colu
   "+anchor":  {xp: 5, gold: 1, stat: FUEL, label: "Extra anchor",      icon: "🥛"}
   "+cook":    {xp: 5, gold: 1, stat: FUEL, label: "Batch-cooked",      icon: "🍳"}
   "+homelab": {xp: 5, gold: 1, stat: SYS,  label: "Homelab / commit",  icon: "🧪"}
+  "+study":   {xp: 5, gold: 1, stat: SYS,  label: "Study reps (10+ cards)", icon: "🧠"}
 other_habit_cap_per_day: 3
 
 negatives:                  # each trims that day's BONUS XP only, never base XP, gold, or progress
