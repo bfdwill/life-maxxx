@@ -26,13 +26,58 @@
       "RMT"
     ]
   },
+  "schedule_phases": [
+    {
+      "from": "2026-11-20",
+      "cycle_types": {
+        "W1": [
+          "FLR",
+          "FLR",
+          "FLR",
+          "OFF",
+          "FLR",
+          "FLR",
+          "FLR"
+        ],
+        "W2": [
+          "OFF",
+          "FLR",
+          "FLR",
+          "FLR",
+          "FLR",
+          "OFF",
+          "OFF"
+        ]
+      }
+    }
+  ],
+  "training_plan": {
+    "W1": [
+      "Lift A (morning, before the 2pm shift)",
+      "Rest day: tap Rest on Move and protect your sleep",
+      "Easy movement: 20-30 min walk or mobility",
+      "BJJ class or open mat (day off). No class? Long run 30+ min",
+      "Lift B (morning, before the shift)",
+      "Run: easy 25-35 min in the morning",
+      "Rest or a light walk. Prep meals for the week"
+    ],
+    "W2": [
+      "BJJ class or open mat (day off)",
+      "Rest day: tap Rest on Move and protect your sleep",
+      "Lift A (morning, before the shift)",
+      "Easy movement: 20-30 min walk or mobility",
+      "Lift B (morning, before the shift)",
+      "Long run 30+ min, or a second BJJ session (day off)",
+      "Rest or a light walk. Do the Sunday review and plan the week"
+    ]
+  },
   "dailies": [
     {
       "key": "S",
       "name": "Sleep Floor",
       "stat": "VIT",
       "icon": "🌙",
-      "normal": "Asleep by 7:15, 6h+",
+      "normal": "Asleep by 1:30, 6h+",
       "minimum": "10-min wind-down"
     },
     {
@@ -149,7 +194,7 @@
       "need": {
         "sleep_green_days": 4,
         "normal_fuel_days": 3,
-        "training_days": 2,
+        "training_days": 4,
         "learn_days": 4,
         "ship_count": 1
       }
@@ -162,7 +207,7 @@
       "need": {
         "sleep_green_days": 5,
         "normal_fuel_days": 5,
-        "training_days": 3,
+        "training_days": 4,
         "learn_days": 5,
         "ship_count": 1
       }
