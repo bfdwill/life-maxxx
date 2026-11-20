@@ -7,9 +7,38 @@ cycle_types:                # Mon..Sun. DBL = both jobs, FLR = floor only, RMT =
   W1: [DBL, FLR, FLR, RMT, DBL, DBL, DBL]
   W2: [RMT, FLR, FLR, DBL, DBL, RMT, RMT]
 
+# Schedule phases: for any date, the latest phase whose `from` is on or before it decides the day type.
+# Days before the first phase use cycle_types above (the old two-job schedule), so history never changes.
+# Phase 1 (2026-11-20): the overnight remote job ended. Floor only, 2pm-10:30pm. FLR = floor shift, OFF = day off.
+schedule_phases:
+  - from: 2026-11-20
+    cycle_types:
+      W1: [FLR, FLR, FLR, "OFF", FLR, FLR, FLR]
+      W2: ["OFF", FLR, FLR, FLR, FLR, "OFF", "OFF"]
+
+# Weekly training plan, Mon..Sun, shown as a hint on the Today screen. 4 sessions a week:
+# 2 lift, 1-2 BJJ, 1 run. Floor days train in the morning before the 2pm shift; off days take the long sessions.
+training_plan:
+  W1:
+    - "Lift A (morning, before the 2pm shift)"
+    - "Rest day: tap Rest on Move and protect your sleep"
+    - "Easy movement: 20-30 min walk or mobility"
+    - "BJJ class or open mat (day off). No class? Long run 30+ min"
+    - "Lift B (morning, before the shift)"
+    - "Run: easy 25-35 min in the morning"
+    - "Rest or a light walk. Prep meals for the week"
+  W2:
+    - "BJJ class or open mat (day off)"
+    - "Rest day: tap Rest on Move and protect your sleep"
+    - "Lift A (morning, before the shift)"
+    - "Easy movement: 20-30 min walk or mobility"
+    - "Lift B (morning, before the shift)"
+    - "Long run 30+ min, or a second BJJ session (day off)"
+    - "Rest or a light walk. Do the Sunday review and plan the week"
+
 # Add a daily by adding a line here (any unused capital letter). The site and tally pick it up.
 dailies:
-  S: {name: Sleep Floor, stat: VIT,  icon: "🌙", normal: "Asleep by 7:15, 6h+",              minimum: "10-min wind-down"}
+  S: {name: Sleep Floor, stat: VIT,  icon: "🌙", normal: "Asleep by 1:30, 6h+",               minimum: "10-min wind-down"}
   F: {name: Fuel,        stat: FUEL, icon: "🍗", normal: "All 5 anchors + pack tomorrow",    minimum: "Shake + yogurt"}
   M: {name: Move,        stat: GRIT, icon: "🥋", normal: "20+ min: BJJ, run, lift, or walk", minimum: "5-min mobility or 10-min walk", rest: true}
   L: {name: Learn,       stat: SYS,  icon: "💻", normal: "30 min Linux or homelab",          minimum: "10 min: one lab step"}
@@ -65,13 +94,13 @@ quests:
     xp: 100
     gold: 25
     full_bonus_xp: 40
-    need: {sleep_green_days: 4, normal_fuel_days: 3, training_days: 2, learn_days: 4, ship_count: 1}
+    need: {sleep_green_days: 4, normal_fuel_days: 3, training_days: 4, learn_days: 4, ship_count: 1}
   W2:
     name: Build
     xp: 150
     gold: 35
     full_bonus_xp: 50
-    need: {sleep_green_days: 5, normal_fuel_days: 5, training_days: 3, learn_days: 5, ship_count: 1}
+    need: {sleep_green_days: 5, normal_fuel_days: 5, training_days: 4, learn_days: 5, ship_count: 1}
 
 levels: {base: 110}         # cumulative XP to reach level n = base * n * (n - 1)
 ranks: [[1, Recruit], [4, Operator], [7, Engineer], [10, Architect]]

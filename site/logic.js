@@ -6,7 +6,15 @@
   const daysBetween = (a, b) => Math.round((parseYmd(b) - parseYmd(a)) / 86400000);
   const addDays = (s, n) => { const d = parseYmd(s); d.setDate(d.getDate() + n); return ymd(d); };
   const DOW = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-  const TYPE_NAME = { DBL: "Both jobs", FLR: "Floor only", RMT: "Remote only" };
+  const TYPE_NAME = { DBL: "Both jobs", FLR: "Floor shift, 2-10:30pm", RMT: "Remote only", OFF: "Day off" };
+
+  // The latest schedule phase starting on or before the date decides the day types; earlier days keep the old cycle.
+  function typesFor(cfg, dateStr) {
+    let t = cfg.cycle_types;
+    const phases = [...(cfg.schedule_phases || [])].sort((a, b) => a.from.localeCompare(b.from));
+    for (const p of phases) if (p.from <= dateStr) t = p.cycle_types;
+    return t;
+  }
 
   function dayInfo(cfg, dateStr) {
     const idx = daysBetween(cfg.start_date, dateStr);
@@ -16,7 +24,7 @@
     const weekKey = cfg.cycle[wkIdx % cfg.cycle.length];
     const dow = idx % 7; // start_date must be a Monday
     return { phase: "active", idx, dayNo: idx + 1, wkIdx, weekKey, dow, dowName: DOW[dow],
-             type: cfg.cycle_types[weekKey][dow] };
+             type: typesFor(cfg, dateStr)[weekKey][dow] };
   }
 
   function emptyState() {
@@ -130,9 +138,13 @@
     else if (st.flags.shield) hints.push({ icon: "🛡️", text: "Family Shield is on. Family time is never scored. Do what you can, skip the rest." });
     else if (st.sleep === "R") hints.push({ icon: "🛌", text: "Recovery Mode: under 5h of sleep. Minimums only, no training, zero penalty." });
     else if (info.dow === 1 && info.type === "FLR") hints.push({ icon: "🧘", text: "Tuesday is a built-in rest day. Tap Rest on Move and protect your sleep." });
+    else if (info.type === "FLR") hints.push({ icon: "🏥", text: "Floor day (2-10:30pm). Train and study in the morning, pack your break meal, and be asleep by 1:30." });
+    else if (info.type === "OFF") hints.push({ icon: "☀️", text: "Day off. Your best window for the long session, lab time, and batch-cooking." });
     else if (info.type === "DBL") hints.push({ icon: "⚡", text: "Double day: do the 5 Minimums first, the rest is bonus. Pack your break meal, no hard training." });
-    else if (info.type === "FLR") hints.push({ icon: "🌙", text: "Night off from remote. Bank 8h+ of sleep tonight, and batch-cook if you have energy." });
     else hints.push({ icon: "☀️", text: "Remote-only day. Your best window for training and lab time is 2-8pm." });
+
+    const plan = (cfg.training_plan || {})[info.weekKey];
+    if (plan && plan[info.dow] && info.dow !== 1 && !st.flags.pause && !st.flags.shield && st.sleep !== "R") hints.push({ icon: "🏋️", text: `Training plan: ${plan[info.dow]}.` });
 
     const lt = learnTarget(info.dayNo);
     hints.push({ icon: "💡", text: `Learn target (${lt.phase}): ${lt.topic}` });
