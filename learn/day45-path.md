@@ -1,4 +1,4 @@
-# Day-45 checkpoint (Nov 4, 2026)
+# Day-45 checkpoint (Jan 6, 2027)
 
 Path A: networking / SRE / infrastructure. Path B: IAM / PAM security. A 70/30 split is allowed.
 

@@ -1,9 +1,9 @@
 # Life-RPG rules. Edit numbers here; scripts/tally.py and the website read this file.
 player: W
-start_date: 2026-09-21      # Day 1 = Week-1 (heavy) Monday of the 14-day cycle. Must be a Monday.
-total_days: 90              # Day 90 = 2026-12-19
-cycle: [W1, W2]             # weeks alternate, starting with W1
-cycle_types:                # Mon..Sun. DBL = both jobs, FLR = floor only, RMT = remote only
+start_date: 2026-11-23      # Restarted: Day 1 = Mon 2026-11-23. Must be a Monday.
+total_days: 90              # Day 90 = 2027-02-20
+cycle: [W2, W1]             # weeks alternate. Day 1's week is W2 (Mon off, Tue-Fri floor), then W1 (heavy, 6 floor shifts)
+cycle_types:                # Legacy two-job types from the first run (Sep 21 - Nov 19). Not used after the restart; schedule_phases below applies.
   W1: [DBL, FLR, FLR, RMT, DBL, DBL, DBL]
   W2: [RMT, FLR, FLR, DBL, DBL, RMT, RMT]
 

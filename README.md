@@ -1,9 +1,9 @@
 # Life-RPG
 
-A 90-day habit system built around a hospital floor-tech schedule (2pm-10:30pm shifts on a 14-day cycle). Through Day 60 it also covered a second, overnight remote job, which ended on Day 61; see `schedule.md`. It scores five daily habits, weekly quests, and a Linux → homelab learning track. A GitHub Action tallies the daily log, refreshes the stats below, and deploys the dashboard. Day 1 was 2026-09-21.
+A 90-day habit system built around a hospital floor-tech schedule (2pm-10:30pm shifts on a 14-day cycle). It started 2026-09-21 alongside a second, overnight remote job; that job ended and the 90 days restarted on 2026-11-23, floor shifts only (see `schedule.md`). It scores five daily habits, weekly quests, and a Linux → homelab learning track. A GitHub Action tallies the daily log, refreshes the stats below, and deploys the dashboard. Day 1 is 2026-11-23.
 
 <!-- RPG:START -->
-_No log entries yet. Day 1 is 2026-09-21._
+_No log entries yet. Day 1 is 2026-11-23._
 
 | Stat | Progress | XP |
 |---|---|---:|
@@ -13,9 +13,9 @@ _No log entries yet. Day 1 is 2026-09-21._
 | SYS | `░░░░░░░░░░` | 0 |
 | DISC | `░░░░░░░░░░` | 0 |
 
-Quest: W1 “Hold the Line” starts 2026-09-21
+Quest: W1 “Hold the Line” starts 2026-11-23
 Badges: 0/5
-Path: Linux → Day-45 checkpoint on Nov 04 (44 days)
+Path: Linux → Day-45 checkpoint on Jan 06 (44 days)
 <!-- RPG:END -->
 
 ## What I'm building
@@ -34,7 +34,7 @@ The `learn/` folder is the portfolio side of this repo: Linux notes, hardened-VM
 Add one line per day to `log/YYYY-MM.md`:
 
 ```
-2026-09-21 | DBL | sleep:G | S:N F:m M:r L:N G:N | +cook +homelab | note
+2026-11-23 | OFF | sleep:G | S:N F:m M:r L:N G:N | +cook +homelab | note
 ```
 
 | Field | Values |
@@ -47,8 +47,8 @@ Add one line per day to `log/YYYY-MM.md`:
 
 Missing days are just blank. Nothing is subtracted and there are no streaks to break.
 
-**Sunday review:** copy `reviews/TEMPLATE.md` to `reviews/2026-W39.md` (ISO week number). It can slide to Monday and closes by Wednesday.
-**Rewards:** add a line like `2026-09-25 | T1 | gelato` to `rewards.log`.
+**Sunday review:** copy `reviews/TEMPLATE.md` to `reviews/2026-W48.md` (ISO week number). It can slide to Monday and closes by Wednesday.
+**Rewards:** add a line like `2026-11-27 | T1 | gelato` to `rewards.log`.
 
 ## Live dashboard
 The `site/` folder is a phone-first web app: a pixel-art map where the trainer walks between gym towns as XP grows, five gym badges you win by shipping real files, a Today screen with tap-to-log Dailies and hints, and side quests for one-off missions (a trip, an appointment).
