@@ -213,26 +213,48 @@
       }
     }
   },
-  "day": 0,
-  "last_log": null,
-  "days_active": 0,
-  "total_xp": 0,
+  "day": 1,
+  "last_log": "2026-11-23",
+  "days_active": 1,
+  "total_xp": 100,
   "level": 1,
   "rank": "Recruit",
   "level_floor_xp": 0,
   "next_level_xp": 220,
   "levels_base": 110,
   "stats": {
-    "VIT": 0,
-    "FUEL": 0,
-    "GRIT": 0,
-    "SYS": 0,
-    "DISC": 0
+    "VIT": 20,
+    "FUEL": 10,
+    "GRIT": 20,
+    "SYS": 25,
+    "DISC": 25
   },
-  "gold_balance": 0,
+  "gold_balance": 14,
   "reviews": 0,
   "comebacks_cleared": 0,
-  "weeks": {},
+  "weeks": {
+    "0": {
+      "week": "W2",
+      "name": "Build",
+      "met": 0,
+      "closed": false,
+      "xp": 0,
+      "gold": 0,
+      "objectives": {
+        "sleep": false,
+        "fuel": false,
+        "move": false,
+        "learn": false
+      },
+      "have": {
+        "sleep_green_days": 1,
+        "normal_fuel_days": 0,
+        "training_days": 0,
+        "learn_days": 1,
+        "ship_count": 0
+      }
+    }
+  },
   "badges": [
     {
       "id": "cli",
@@ -296,5 +318,22 @@
     }
   ],
   "side_quests": [],
-  "recent": []
+  "recent": [
+    {
+      "date": "2026-11-23",
+      "type": "OFF",
+      "sleep": "G",
+      "codes": {
+        "S": "N",
+        "F": "m",
+        "M": "N",
+        "L": "N",
+        "G": "m"
+      },
+      "tokens": [
+        "+study"
+      ],
+      "pause": false
+    }
+  ]
 }
