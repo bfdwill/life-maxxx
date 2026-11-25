@@ -213,23 +213,23 @@
       }
     }
   },
-  "day": 1,
-  "last_log": "2026-11-23",
-  "days_active": 1,
-  "total_xp": 100,
+  "day": 2,
+  "last_log": "2026-11-24",
+  "days_active": 2,
+  "total_xp": 185,
   "level": 1,
   "rank": "Recruit",
   "level_floor_xp": 0,
   "next_level_xp": 220,
   "levels_base": 110,
   "stats": {
-    "VIT": 20,
-    "FUEL": 10,
-    "GRIT": 20,
-    "SYS": 25,
-    "DISC": 25
+    "VIT": 30,
+    "FUEL": 30,
+    "GRIT": 30,
+    "SYS": 45,
+    "DISC": 50
   },
-  "gold_balance": 14,
+  "gold_balance": 25,
   "reviews": 0,
   "comebacks_cleared": 0,
   "weeks": {
@@ -248,9 +248,9 @@
       },
       "have": {
         "sleep_green_days": 1,
-        "normal_fuel_days": 0,
+        "normal_fuel_days": 1,
         "training_days": 0,
-        "learn_days": 1,
+        "learn_days": 2,
         "ship_count": 0
       }
     }
@@ -333,6 +333,20 @@
       "tokens": [
         "+study"
       ],
+      "pause": false
+    },
+    {
+      "date": "2026-11-24",
+      "type": "FLR",
+      "sleep": "Y",
+      "codes": {
+        "S": "m",
+        "F": "N",
+        "M": "r",
+        "L": "N",
+        "G": "m"
+      },
+      "tokens": [],
       "pause": false
     }
   ]

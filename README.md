@@ -3,23 +3,23 @@
 A 90-day habit system built around a hospital floor-tech schedule (2pm-10:30pm shifts on a 14-day cycle). It started 2026-09-21 alongside a second, overnight remote job; that job ended and the 90 days restarted on 2026-11-23, floor shifts only (see `schedule.md`). It scores five daily habits, weekly quests, and a Linux → homelab learning track. A GitHub Action tallies the daily log, refreshes the stats below, and deploys the dashboard. Day 1 is 2026-11-23.
 
 <!-- RPG:START -->
-**Level 1 · Recruit** — 100 XP (next level at 220, 120 to go)
+**Level 1 · Recruit** — 185 XP (next level at 220, 35 to go)
 
-Day 1/90 · 1 days active · Gold 14
+Day 2/90 · 2 days active · Gold 25
 
 | Stat | Progress | XP |
 |---|---|---:|
-| VIT | `████████░░` | 20 |
-| FUEL | `████░░░░░░` | 10 |
-| GRIT | `████████░░` | 20 |
-| SYS | `██████████` | 25 |
-| DISC | `██████████` | 25 |
+| VIT | `██████░░░░` | 30 |
+| FUEL | `██████░░░░` | 30 |
+| GRIT | `██████░░░░` | 30 |
+| SYS | `█████████░` | 45 |
+| DISC | `██████████` | 50 |
 
 Quest: W2 “Build” · 0/4 objectives so far
 Badges: 0/5
-Path: Linux → Day-45 checkpoint on Jan 06 (44 days)
+Path: Linux → Day-45 checkpoint on Jan 06 (43 days)
 
-_Last tally: 2026-11-23_
+_Last tally: 2026-11-24_
 <!-- RPG:END -->
 
 ## What I'm building
