@@ -3,3 +3,4 @@
 # Log a completed one by adding  +sq:<id>  to that day's habits column (the site does it when you tap it).
 #
 # - {"id": "airport", "title": "Get to the airport 2h early", "date": "2026-10-10", "until": "2026-10-10", "xp": 30, "gold": 5, "hint": "Bag packed the night before, ID + boarding pass ready."}
+- {"id":"pressure-wash-the-lanai","title":"Pressure wash the Lanai","date":"2026-11-28","until":"2026-11-28","xp":30,"gold":5,"hint":""}
