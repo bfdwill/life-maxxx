@@ -317,7 +317,19 @@
       "earned": false
     }
   ],
-  "side_quests": [],
+  "side_quests": [
+    {
+      "id": "pressure-wash-the-lanai",
+      "title": "Pressure wash the Lanai",
+      "date": "2026-11-28",
+      "until": "2026-11-28",
+      "xp": 30,
+      "gold": 5,
+      "stat": "DISC",
+      "hint": "",
+      "done": false
+    }
+  ],
   "recent": [
     {
       "date": "2026-11-23",
